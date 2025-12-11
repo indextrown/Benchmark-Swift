@@ -39,51 +39,52 @@ runner.run(with: BenchmarkData(
     shuffleRange: 0..<2000
 ))
 
+/*
+let sortBenchmark = Benchmark(
+    name: "Array Sort",
+    prepare: { data in
+        return {
+            _ = data.source.sorted()
+        }
+    }
+)
+
+let containsBenchmark = Benchmark(
+    name: "Contains Check",
+    prepare: { data in
+        let value = data.source.randomElement()!
+        return {
+            _ = data.target.contains(value)
+        }
+    }
+)
 
 
-//let sortBenchmark = Benchmark(
-//    name: "Array Sort",
-//    prepare: { data in
-//        return {
-//            _ = data.source.sorted()
-//        }
-//    }
-//)
-//
-//let containsBenchmark = Benchmark(
-//    name: "Contains Check",
-//    prepare: { data in
-//        let value = data.source.randomElement()!
-//        return {
-//            _ = data.target.contains(value)
-//        }
-//    }
-//)
-//
-//let runner = BenchmarkRunner(
-//    sortBenchmark,
-//    containsBenchmark
-//)
-//
-//runner.run(with: BenchmarkData(
-//    count: 5000,
-//    deleteRange: 2000..<3000,
-//    insertRange: 3000..<4000,
-//    shuffleRange: 0..<200
-//))
-//
-//runner.run(with: BenchmarkData(
-//    count: 100000,
-//    deleteRange: 20000..<30000,
-//    insertRange: 30000..<40000,
-//    shuffleRange: 0..<2000
-//))
+let runner = BenchmarkRunner(
+    sortBenchmark,
+    containsBenchmark
+)
 
-//let data = BenchmarkData(
-//    count: 5000,
-//    deleteRange: 2000..<3000,
-//    insertRange: 3000..<4000,
-//    shuffleRange: 0..<200
-//)
-//
-//runner.run(with: data)
+runner.run(with: BenchmarkData(
+    count: 5000,
+    deleteRange: 2000..<3000,
+    insertRange: 3000..<4000,
+    shuffleRange: 0..<200
+))
+
+runner.run(with: BenchmarkData(
+    count: 100000,
+    deleteRange: 20000..<30000,
+    insertRange: 30000..<40000,
+    shuffleRange: 0..<2000
+))
+
+let data = BenchmarkData(
+    count: 5000,
+    deleteRange: 2000..<3000,
+    insertRange: 3000..<4000,
+    shuffleRange: 0..<200
+)
+
+runner.run(with: data)
+*/
