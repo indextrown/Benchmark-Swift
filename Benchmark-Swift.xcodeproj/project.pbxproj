@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DF8FE7702EEB3B8A00FFB707 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF8FE76F2EEB3B8A00FFB707 /* DifferenceKit */; };
+		DFAE2E5C2EEBCE3C00688819 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = DFAE2E5B2EEBCE3C00688819 /* Differentiator */; };
+		DFAE2E5E2EEBCE3C00688819 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = DFAE2E5D2EEBCE3C00688819 /* RxDataSources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFAE2E5E2EEBCE3C00688819 /* RxDataSources in Frameworks */,
+				DFAE2E5C2EEBCE3C00688819 /* Differentiator in Frameworks */,
 				DF8FE7702EEB3B8A00FFB707 /* DifferenceKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +87,8 @@
 			name = "Benchmark-Swift";
 			packageProductDependencies = (
 				DF8FE76F2EEB3B8A00FFB707 /* DifferenceKit */,
+				DFAE2E5B2EEBCE3C00688819 /* Differentiator */,
+				DFAE2E5D2EEBCE3C00688819 /* RxDataSources */,
 			);
 			productName = "Benchmark-Swift";
 			productReference = DF8FE7642EEB3B2800FFB707 /* Benchmark-Swift */;
@@ -114,6 +120,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DF8FE76E2EEB3B8A00FFB707 /* XCRemoteSwiftPackageReference "DifferenceKit" */,
+				DFAE2E5A2EEBCE3C00688819 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF8FE7652EEB3B2800FFB707 /* Products */;
@@ -310,6 +317,14 @@
 				minimumVersion = 1.3.0;
 			};
 		};
+		DFAE2E5A2EEBCE3C00688819 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -317,6 +332,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF8FE76E2EEB3B8A00FFB707 /* XCRemoteSwiftPackageReference "DifferenceKit" */;
 			productName = DifferenceKit;
+		};
+		DFAE2E5B2EEBCE3C00688819 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAE2E5A2EEBCE3C00688819 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		DFAE2E5D2EEBCE3C00688819 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAE2E5A2EEBCE3C00688819 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

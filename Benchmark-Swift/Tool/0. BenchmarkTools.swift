@@ -7,8 +7,18 @@
 
 import Foundation
 import DifferenceKit
+import Differentiator
 
+// DifferenceKit
 extension UUID: Differentiable {}
+
+// Differentiator
+extension UUID: @retroactive IdentifiableType {
+    public var identity: UUID {
+        return self
+    }
+}
+
 
 struct BenchmarkData {
     var source: [UUID]  // 원본 배열
@@ -62,7 +72,7 @@ struct BenchmarkRunner {
         let insertCount = String.localizedStringWithFormat("%d", data.insertRange.count)
         let shuffleCount = String.localizedStringWithFormat("%d", data.shuffleRange.count)
         
-        //  표 정렬을 예쁘게 하기 위해 가장 이름이 긴 길이를 얻는다
+        // 표 정렬을 예쁘게 하기 위해 가장 이름이 긴 길이를 얻는다
         let maxLength = benchmarks.lazy
             .map { $0.name.count }
             .max() ?? 0
@@ -80,10 +90,12 @@ struct BenchmarkRunner {
             |\(leftAlignSpacer)|\(rightAlignSpacer)|
             """)
         
+        // 벤치마크 실행 준비
         var results = ContiguousArray<CFAbsoluteTime?>(repeating: nil, count: benchmarks.count)
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "Measure benchmark queue", attributes: .concurrent)
-
+        
+        // 각 벤치마크를 비동기로 실행, 3번 측정해서 가장 작은 값만 저장(측정 오차 제거를 위함)
         for (offset, benchmark) in benchmarks.enumerated() {
             group.enter()
 
@@ -98,13 +110,14 @@ struct BenchmarkRunner {
 
         group.wait()
 
+        // 표 형태로 결과 출력
         for (offset, benchmark) in benchmarks.enumerated() {
             guard let result = results[offset] else {
                 fatalError("Measuring was not works correctly.")
             }
-
+            
             let paddingName = benchmark.name.padding(toLength: maxLength, withPad: " ", startingAt: 0)
-            let paddingTime = String(format: "`%.4f`", result).padding(toLength: maxLength, withPad: " ", startingAt: 0)
+            let paddingTime = String(format: "%.4f", result).padding(toLength: maxLength, withPad: " ", startingAt: 0)
 
             print("|\(paddingName)|", terminator: "")
             print("\(paddingTime)|")
